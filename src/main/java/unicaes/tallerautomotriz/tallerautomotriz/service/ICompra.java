@@ -7,6 +7,7 @@ import java.util.List;
 public interface ICompra {
     //para consultar
     List<CompraEntity> findAll();
+
     //PARA GUARDAR
     CompraEntity save(CompraEntity pedidoRepuesto);
 

@@ -34,7 +34,7 @@ public class VentaEntity {
     @JoinColumn(name = "id_Repuesto", referencedColumnName = "id_Repuesto")
     private RepuestoEntity idRepuesto;
 
-    @Column(columnDefinition = "int")
+    @Column(columnDefinition = "int", name="cantidad")
     private Long cantidad;
 
     @Column(columnDefinition = "decimal")

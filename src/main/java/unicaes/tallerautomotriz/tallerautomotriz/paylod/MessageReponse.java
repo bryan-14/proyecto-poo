@@ -12,5 +12,5 @@ public class MessageReponse implements Serializable {
 
     private String mensaje;
 
-    private String data;
+    private Object data;
 }

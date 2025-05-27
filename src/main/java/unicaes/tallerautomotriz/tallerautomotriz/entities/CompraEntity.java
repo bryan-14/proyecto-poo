@@ -25,17 +25,17 @@ public class CompraEntity {
     @JoinColumn(name = "id_Repuesto", referencedColumnName = "id_Repuesto")
     private RepuestoEntity idRepuesto;
 
-    @Column(columnDefinition = "VARCHAR(255)")
+    @Column(columnDefinition = "VARCHAR(255)",name = "descripcion")
     private String descripcion;
 
-    @Column(columnDefinition = "INT")
+    @Column(columnDefinition = "INT", name = "cantidad")
     private int cantidad;
 
     @ManyToOne
     @JoinColumn(name = "id_Proveedor", referencedColumnName = "id_Proveedor")
     private ProveedorEntity idProveedor;
 
-    @Column(columnDefinition = "DATE")
+    @Column(columnDefinition = "DATE", name = "fecha_pedido")
     private LocalDate fecha_pedido;
 
 

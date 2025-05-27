@@ -3,6 +3,7 @@ package unicaes.tallerautomotriz.tallerautomotriz.service.Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ClienteEntity;
+
 import unicaes.tallerautomotriz.tallerautomotriz.repository.ClienteRepository;
 import unicaes.tallerautomotriz.tallerautomotriz.service.ICliente;
 
@@ -25,5 +26,8 @@ public class ClienteImpl implements ICliente {
         return clienteRepository.save(cliente);
     }
 
-
+    @Override
+    public List<ClienteEntity> findNameLess(String nombre) {
+        return clienteRepository.findNameLess(nombre);
+    }
 }
