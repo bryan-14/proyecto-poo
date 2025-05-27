@@ -27,8 +27,8 @@ public class VentaEntity {
     @JoinColumn(name = "id_Cliente", referencedColumnName = "id_Cliente")
     private ClienteEntity idCliente;
 
-    @Column(columnDefinition = "DATE")
-    private LocalDate fecha_Venta;
+    @Column(columnDefinition = "DATE", name="fecha_Venta")
+    private LocalDate fechaVenta;
 
     @ManyToOne
     @JoinColumn(name = "id_Repuesto", referencedColumnName = "id_Repuesto")
@@ -37,7 +37,7 @@ public class VentaEntity {
     @Column(columnDefinition = "int", name="cantidad")
     private Long cantidad;
 
-    @Column(columnDefinition = "decimal")
-    private BigDecimal totalventa;
+    @Column(columnDefinition = "decimal", name="total_Venta")
+    private BigDecimal totalVenta;
 
 }
