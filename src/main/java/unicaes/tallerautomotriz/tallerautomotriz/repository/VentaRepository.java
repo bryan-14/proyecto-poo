@@ -15,12 +15,12 @@ import java.util.List;
 
 public interface VentaRepository extends JpaRepository<VentaEntity, Long> {
 
-    @Query("SELECT p FROM VentaEntity p WHERE p.totalVenta = :totalventa")
-    List<VentaEntity> findPriceLess(@Param("totalventa") BigDecimal totalventa);
+    @Query("SELECT p FROM VentaEntity p WHERE p.idVenta = :idVenta")
+    List<VentaEntity> findId(@Param("idVenta") Long idVenta);
 
 
     @Query("""
-    SELECT new unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.VentaDto(p.idVenta, p.fechaVenta, p.totalVenta,
+    SELECT new unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.VentaDto(p.idVenta, p.idCliente.idCliente, p.fechaVenta, p.totalVenta,
     Round((p.totalVenta * 0.13),2)) FROM VentaEntity p""")
     List<VentaDto> ventaConIva();
 

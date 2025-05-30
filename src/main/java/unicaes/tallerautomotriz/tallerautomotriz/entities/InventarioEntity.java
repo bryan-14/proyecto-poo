@@ -17,7 +17,7 @@ public class InventarioEntity {
 
     @Id
     @Column(columnDefinition = "int ", name = "id_Inventario")
-    private Long id_Inventario;
+    private Long idInventario;
 
     @ManyToOne
     @JoinColumn(name = "id_repuesto", referencedColumnName = "id_Repuesto")

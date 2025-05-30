@@ -8,7 +8,11 @@ public interface ICompra {
     //para consultar
     List<CompraEntity> findAll();
 
+    List<CompraEntity> findIdCompra(Long idPedido);
+
     //PARA GUARDAR
     CompraEntity save(CompraEntity pedidoRepuesto);
+
+
 
 }

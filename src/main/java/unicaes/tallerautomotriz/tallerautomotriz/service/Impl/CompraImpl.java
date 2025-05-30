@@ -3,6 +3,7 @@ package unicaes.tallerautomotriz.tallerautomotriz.service.Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.CompraEntity;
+import unicaes.tallerautomotriz.tallerautomotriz.entities.VentaEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.repository.CompraRepository;
 import unicaes.tallerautomotriz.tallerautomotriz.service.ICompra;
 
@@ -18,6 +19,11 @@ public class CompraImpl implements ICompra {
     @Override
     public List<CompraEntity> findAll() {
         return compraRepository.findAll();
+    }
+
+    @Override
+    public List<CompraEntity> findIdCompra(Long idPedido) {
+        return compraRepository.findIdCompra(idPedido);
     }
 
     //para escribir

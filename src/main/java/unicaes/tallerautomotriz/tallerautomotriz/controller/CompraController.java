@@ -19,6 +19,14 @@ public class CompraController {
     @Autowired
     private ICompra iCompra;
 
+            /*
+        @Transactional(readOnly = true)
+        @GetMapping("/comprass")
+        public List<CompraEntity> getPedidos() {
+            return iCompra.findAll();
+        }
+
+         */
 
     @Transactional(readOnly = true)
     @GetMapping("/compras")
@@ -42,14 +50,29 @@ public class CompraController {
 
     }
 
-        /*
-        @Transactional(readOnly = true)
-        @GetMapping("/comprass")
-        public List<CompraEntity> getPedidos() {
-            return iCompra.findAll();
+    @Transactional(readOnly = true)
+    @GetMapping("/idCompras/{idpedido}")
+    public ResponseEntity<?> findNameLess(@PathVariable("idpedido") Long idpedido) {
+        try {
+
+            return new ResponseEntity<>(MessageReponse.builder()
+                    .mensaje("proceso realizado con exito.")
+                    .data(iCompra.findIdCompra(idpedido))
+                    .build(),
+                    HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(
+                    MessageReponse.builder()
+                            .mensaje("Error al obtener las compras: " + e.getMessage())
+                            .data(null)
+                            .build(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-         */
+    }
+
+
 
 
 

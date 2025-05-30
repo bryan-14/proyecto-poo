@@ -1,6 +1,7 @@
 package unicaes.tallerautomotriz.tallerautomotriz.service;
 
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ClienteEntity;
+import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ClienteDto;
 
 
 import java.util.List;
@@ -12,8 +13,11 @@ public interface ICliente {
     //para guardar
     ClienteEntity save(ClienteEntity cliente);
 
+    List<ClienteDto> buscarClienteDto();
+
     //buscar por nombre
     List<ClienteEntity> findNameLess(String nombre);
+
 
 
 

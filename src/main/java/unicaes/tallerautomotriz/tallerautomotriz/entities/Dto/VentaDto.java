@@ -15,6 +15,7 @@ import java.time.LocalDate;
 
 public class VentaDto {
     private Long idVenta;
+    private Long idCliente;
     private LocalDate fechaVenta;
     private BigDecimal totalVenta;
     private double iva;

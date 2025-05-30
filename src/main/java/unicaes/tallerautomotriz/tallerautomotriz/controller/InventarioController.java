@@ -1,5 +1,6 @@
 package unicaes.tallerautomotriz.tallerautomotriz.controller;
 
+import jakarta.transaction.TransactionScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +18,12 @@ public class InventarioController {
     @Autowired
     private IInventario iInventario;
 
-    @Transactional
+    @Transactional(readOnly = true)
     @GetMapping("/inventarios")
     public List<InventarioEntity> getinventarios(){
         return iInventario.findAll();
     }
+
 
 
 }

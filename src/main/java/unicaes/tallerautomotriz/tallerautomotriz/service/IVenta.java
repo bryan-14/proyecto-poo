@@ -11,12 +11,12 @@ public interface IVenta {
 
     //para consultar
     List<VentaEntity>findAll();
-    //para guardar
-    VentaEntity save(VentaEntity compra);
 
-    List<VentaEntity> findPriceLess(BigDecimal totalventa);
+    List<VentaEntity> findId(Long idVenta);
 
     List<VentaDto> ventaConIva();
 
+    //para guardar
+    VentaEntity save(VentaEntity compra);
 
 }

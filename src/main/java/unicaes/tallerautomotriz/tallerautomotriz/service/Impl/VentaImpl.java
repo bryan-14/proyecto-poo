@@ -24,8 +24,8 @@ public class VentaImpl implements IVenta {
     }
 
     @Override
-    public List<VentaEntity> findPriceLess(BigDecimal totalventa) {
-        return ventaRepository.findPriceLess(totalventa);
+    public List<VentaEntity> findId(Long idVenta) {
+        return ventaRepository.findId(idVenta);
     }
 
     @Override

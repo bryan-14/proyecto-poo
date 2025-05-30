@@ -9,7 +9,9 @@ public interface IInventario {
     List<InventarioEntity>findAll();
 
 
-
 }
+
+
+
 
 

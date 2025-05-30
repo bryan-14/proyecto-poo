@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Table (name= "cliente")
 
-public class ClienteEntity {
+public class    ClienteEntity {
 
     @Id
     @Column(columnDefinition = "int", name = "id_cliente")
