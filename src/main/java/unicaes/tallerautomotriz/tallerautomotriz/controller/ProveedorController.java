@@ -3,6 +3,7 @@ package unicaes.tallerautomotriz.tallerautomotriz.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ProveedorDto;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ProveedorEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.service.IProveedor;
 
@@ -17,8 +18,8 @@ public class ProveedorController {
 
     @Transactional(readOnly = true)
     @GetMapping("/proveedores")
-    public List<ProveedorEntity> getProveedores() {
-        return iProveedor.findAll();
+    public List<ProveedorDto> buscarproveedorDto() {
+        return iProveedor.buscarproveedorDto();
 
     }
     //para escribir

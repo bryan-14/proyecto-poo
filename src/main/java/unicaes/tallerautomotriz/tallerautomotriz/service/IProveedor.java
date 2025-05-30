@@ -1,5 +1,6 @@
 package unicaes.tallerautomotriz.tallerautomotriz.service;
 
+import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ProveedorDto;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ProveedorEntity;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface IProveedor {
 
     //para escribir
     ProveedorEntity save(ProveedorEntity proveedor);
+
+    List<ProveedorDto > buscarproveedorDto();
 }
