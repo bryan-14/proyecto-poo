@@ -1,7 +1,6 @@
 package unicaes.tallerautomotriz.tallerautomotriz.service;
 
 import unicaes.tallerautomotriz.tallerautomotriz.entities.RepuestoEntity;
-import unicaes.tallerautomotriz.tallerautomotriz.repository.RepuestoRepository;
 
 import java.util.List;
 

@@ -5,13 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.VentaDto;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.VentaEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.paylod.MessageReponse;
 import unicaes.tallerautomotriz.tallerautomotriz.service.IVenta;
 
-import java.math.BigDecimal;
-import java.util.List;
 
 @RestController
 @RequestMapping("/process")

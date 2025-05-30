@@ -8,7 +8,6 @@ import unicaes.tallerautomotriz.tallerautomotriz.entities.VentaEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.repository.VentaRepository;
 import unicaes.tallerautomotriz.tallerautomotriz.service.IVenta;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service

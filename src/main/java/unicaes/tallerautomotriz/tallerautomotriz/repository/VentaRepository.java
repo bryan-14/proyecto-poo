@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.VentaDto;
 
 import unicaes.tallerautomotriz.tallerautomotriz.entities.VentaEntity;
-
-import java.math.BigDecimal;
 import java.util.List;
 
 @Repository

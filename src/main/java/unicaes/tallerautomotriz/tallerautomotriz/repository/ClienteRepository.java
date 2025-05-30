@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ClienteEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ClienteDto;
-import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.VentaDto;
 
 
 import java.util.List;
