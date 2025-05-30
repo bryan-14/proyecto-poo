@@ -13,30 +13,30 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table (name = "compra")
-
+@Table(name = "compra")
 public class CompraEntity {
+
     @Id
-    @Column(columnDefinition = "int", name = "id_Pedido")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Pedido")
     private Long idPedido;
 
     @ManyToOne
     @JoinColumn(name = "id_Repuesto", referencedColumnName = "id_Repuesto")
     private RepuestoEntity idRepuesto;
 
-    @Column(columnDefinition = "VARCHAR(255)",name = "descripcion")
+    @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(columnDefinition = "INT", name = "cantidad")
-    private int cantidad;
+    @Column(name = "cantidad")
+    private Integer cantidad; 
 
     @ManyToOne
     @JoinColumn(name = "id_Proveedor", referencedColumnName = "id_Proveedor")
     private ProveedorEntity idProveedor;
 
-    @Column(columnDefinition = "DATE", name = "fecha_pedido")
-    private LocalDate fecha_pedido;
+    @Column(name = "fecha_pedido")
+    private String fechaPedido; 
 
 
 
