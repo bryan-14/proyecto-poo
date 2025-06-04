@@ -10,6 +10,7 @@ public interface ICliente {
 
     //para consultar
     List<ClienteEntity> findAll();
+
     //para guardar
     ClienteEntity save(ClienteEntity cliente);
 
@@ -18,7 +19,8 @@ public interface ICliente {
     //buscar por nombre
     List<ClienteEntity> findNameLess(String nombre);
 
-
+    //eliminar clientes
+    void deleteById(Long id);
 
 
 

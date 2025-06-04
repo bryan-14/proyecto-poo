@@ -9,6 +9,7 @@ import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ClienteDto;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 
@@ -21,6 +22,7 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
     @Query("""
     SELECT new unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ClienteDto(p.idCliente, p.nombre, p.apellido) FROM ClienteEntity p""")
     List<ClienteDto> buscarClienteDto();
+
 
 
 }

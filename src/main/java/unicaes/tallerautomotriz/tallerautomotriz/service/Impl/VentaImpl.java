@@ -32,13 +32,18 @@ public class VentaImpl implements IVenta {
         return ventaRepository.ventaConIva();
     }
 
-
-
-
     //para escribir
     @Override
     public VentaEntity save(VentaEntity ventaEntity) {
         return ventaRepository.save(ventaEntity);
+    }
+
+    @Override
+    public void deleteVenta(Long id) {
+        if (!ventaRepository.existsById(id)) {
+            throw new RuntimeException("No se puede eliminar la venta con id ".concat(id.toString()));
+        }
+        ventaRepository.deleteById(id);
     }
 
 

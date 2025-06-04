@@ -16,6 +16,7 @@ import lombok.Setter;
 public class InventarioEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "int ", name = "id_Inventario")
     private Long idInventario;
 

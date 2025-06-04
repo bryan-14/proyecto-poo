@@ -1,5 +1,6 @@
 package unicaes.tallerautomotriz.tallerautomotriz.service.Impl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ClienteEntity;
@@ -37,4 +38,14 @@ public class ClienteImpl implements ICliente {
     public ClienteEntity save(ClienteEntity cliente) {
         return clienteRepository.save(cliente);
     }
+
+    //para eliminar clientes
+    @Override
+    public void deleteById(Long id) {
+        if (!clienteRepository.existsById(id)) {
+            throw new RuntimeException("Cliente no encontrado ".concat(id.toString()));
+        }
+        clienteRepository.deleteById(id);
+    }
+
 }

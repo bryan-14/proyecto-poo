@@ -18,4 +18,7 @@ public interface IVenta {
     //para guardar
     VentaEntity save(VentaEntity compra);
 
+    //eliminar ventas
+    void deleteVenta(Long id);
+
 }

@@ -11,7 +11,7 @@ import unicaes.tallerautomotriz.tallerautomotriz.entities.ClienteEntity;
 
 import unicaes.tallerautomotriz.tallerautomotriz.paylod.MessageReponse;
 import unicaes.tallerautomotriz.tallerautomotriz.service.ICliente;
-
+import unicaes.tallerautomotriz.tallerautomotriz.service.Impl.ClienteImpl;
 
 
 @RestController
@@ -21,6 +21,8 @@ public class ClienteController {
     //para leer
     @Autowired
     private ICliente iCliente;
+    @Autowired
+    private ClienteImpl clienteImpl;
 
     @Transactional(readOnly = true)
     @GetMapping("/clientes")
@@ -44,13 +46,8 @@ public class ClienteController {
 
     }
 
-    /*
-    @Transactional(readOnly = true)
-    @GetMapping("/nombreClientes/{nombre}")
-    public List<ClienteEntity> findNameLess(@PathVariable("nombre") String nombre){
-        return iCliente.findNameLess(nombre);
-    }
-     */
+
+
 
     @Transactional(readOnly = true)
     @GetMapping("/nombreClientes/{nombre}")
@@ -100,6 +97,7 @@ public class ClienteController {
     }
 
 
+
     //para escribir
 
 
@@ -109,4 +107,26 @@ public class ClienteController {
         return iCliente.save(cliente);
     }
 
-}
+
+
+// PUT para actualizar un cliente
+    @Transactional
+    @PutMapping("/actualizarCliente")
+    public ClienteEntity updateCliente(@RequestBody ClienteEntity cliente) {
+
+        return iCliente.save(cliente);
+    }
+
+    //para eliminar clientes
+    @Transactional
+    @DeleteMapping("/eliminarCliente/{id}")
+        public ResponseEntity<String> deletecliente(@PathVariable Long id){
+            try{
+                iCliente.deleteById(id);
+                return ResponseEntity.ok("cliente eliminado exitosamente");
+            } catch (RuntimeException e){
+                return ResponseEntity.status(404).body(e.getMessage());
+            }
+        }
+    }
+

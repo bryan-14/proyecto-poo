@@ -62,4 +62,11 @@ public class RepuestoController {
             return ResponseEntity.status(404).body(e.getMessage());
         }
     }
+
+    // actualizar
+    @Transactional
+    @PutMapping("/ActualizarRepuesto")
+    public RepuestoDto updateRepuesto(@RequestBody RepuestoDto repuesto) {
+        return iRepuesto.save(repuesto);
+    }
 }

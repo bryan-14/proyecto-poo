@@ -17,18 +17,10 @@ public class VentaController {
     @Autowired
     private IVenta iVenta;
 
-    /*
-    @Transactional(readOnly = true)
-    @GetMapping("/ventas")
-    public List<VentaEntity> getVentas() {
-        return iVenta.findAll();
-    }
 
-     */
     @Transactional(readOnly = true)
     @GetMapping("/ventas")
     public ResponseEntity<?> getVentas() {
-        //return iVentas.findAll();
         try {
             return new ResponseEntity<>(MessageReponse.builder()
                     .mensaje("proceso realizado con exito.")
@@ -47,14 +39,6 @@ public class VentaController {
 
     }
 
-    /*
-    @Transactional(readOnly = true)
-    @GetMapping("/buscarVentasPorId/{idVenta}")
-    public List<VentaEntity> findPriceLess(@PathVariable("idVenta") Long idVenta) {
-        return iVenta.findId(idVenta);
-    }
-
-     */
 
     @Transactional(readOnly = true)
     @GetMapping("/buscarVentasPorId/{idVenta}")
@@ -77,14 +61,7 @@ public class VentaController {
         }
 
     }
-    /*
-    @Transactional (readOnly = true)
-    @GetMapping("ventasConIva")
-    public List<VentaDto> VentaConIva(){
-        return iVenta.ventaConIva();
-    }
 
-     */
 
     @Transactional(readOnly = true)
     @GetMapping("/ventasConIva")
@@ -108,14 +85,34 @@ public class VentaController {
 
     }
 
-
-
-
-
     //para escribir o guardar
     @Transactional
     @PostMapping("/venta")
     public VentaEntity saveVenta(@RequestBody VentaEntity compra) {
         return iVenta.save(compra);
     }
-}
+
+    
+    //actualizar ventas
+    @Transactional
+    @PutMapping("/venta")
+    public VentaEntity updateVenta(@RequestBody VentaEntity compra) {
+        return iVenta.save(compra);
+    }
+
+    //eliminar cliente
+    @Transactional
+    @DeleteMapping("/venta/{id}")
+    public ResponseEntity<String> deleteCliente(@PathVariable Long id){
+        try {
+            iVenta.deleteVenta(id);
+            return ResponseEntity.ok("Venta eliminada exitosamente");
+        } catch (RuntimeException e){
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+        
+        }
+    }
+
+
+
