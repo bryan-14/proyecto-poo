@@ -1,14 +1,23 @@
 package unicaes.tallerautomotriz.tallerautomotriz.service;
 
-import unicaes.tallerautomotriz.tallerautomotriz.entities.RepuestoEntity;
-
+import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.RepuestoDto;
 import java.util.List;
 
 public interface IRepuesto {
-    //para consultar
-    List<RepuestoEntity> findAll();
 
-    //para guardar
-    RepuestoEntity save(RepuestoEntity repuesto);
+    // Consultar todos
+    List<RepuestoDto> findAll();
 
+    // Consultar por ID
+    RepuestoDto findById(Long id);
+
+    // Guardar o actualizar
+    RepuestoDto save(RepuestoDto repuesto);
+
+    // Eliminar por ID
+    void deleteById(Long id);
+
+    // Filtrar por categoría
+    List<RepuestoDto> findByCategoria(String categoria);
 }
+
