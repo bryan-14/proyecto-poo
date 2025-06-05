@@ -7,11 +7,18 @@ import java.util.List;
 
 public interface IProveedor {
 
-    //para consulta
-    List<ProveedorEntity> findAll();
+    //VER TODOS
+    List<ProveedorDto> findAll();
 
-    //para escribir
+    //VER POR ID
+    ProveedorDto findById(Long id);
+
+    //MODIFICAR Y PONER
     ProveedorEntity save(ProveedorEntity proveedor);
 
-    List<ProveedorDto > buscarproveedorDto();
+    //BORRAR
+    void delete(Long id);
+
+   //BUSCAR POR
+    List<ProveedorDto> findByNombre(String nombre);
 }

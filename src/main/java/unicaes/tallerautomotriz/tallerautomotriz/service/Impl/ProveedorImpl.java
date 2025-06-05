@@ -15,8 +15,8 @@ public class ProveedorImpl  implements IProveedor {
     private ProveedorRepository proveedorRepository;
 
     @Override
-    public List<ProveedorEntity> findAll(){
-        return proveedorRepository.findAll();
+    public List<ProveedorDto> findAll(){
+        return buscarproveedorDto().findAll();
     }
 
     public ProveedorEntity save(ProveedorEntity proveedor){

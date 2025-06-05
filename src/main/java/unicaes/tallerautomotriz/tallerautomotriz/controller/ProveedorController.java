@@ -1,17 +1,17 @@
 package unicaes.tallerautomotriz.tallerautomotriz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ProveedorDto;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ProveedorEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.service.IProveedor;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/process")
-public class ProveedorController {
+public class    ProveedorController {
     //para leer
     @Autowired
     private IProveedor iProveedor;
@@ -26,6 +26,8 @@ public class ProveedorController {
     @Transactional
     @PostMapping("/proveedor")
     public ProveedorEntity saveProveedor(@RequestBody ProveedorEntity proveedor) {
-        return iProveedor.save(proveedor);
+        ProveedorEntity SavedProveedor = iProveedor.save(proveedor);
+        String mensaje = "Aqui tienes " + proveedor.getNombre() + " proveedores";
+        return ProveedorEntity.ok(Mensaje);
     }
 }
