@@ -4,17 +4,21 @@ import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ProveedorDto;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.ProveedorEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IProveedor {
 
     //VER TODOS
-    List<ProveedorDto> findAll();
+    List<ProveedorEntity> findAll();
 
     //VER POR ID
-    ProveedorDto findById(Long id);
+    Optional<ProveedorEntity> findById(Long id);
 
     //MODIFICAR Y PONER
     ProveedorEntity save(ProveedorEntity proveedor);
+
+    //ACTUALIZAR
+    ProveedorEntity update(Long id, ProveedorEntity proveedor);
 
     //BORRAR
     void delete(Long id);

@@ -11,7 +11,6 @@ import unicaes.tallerautomotriz.tallerautomotriz.entities.ClienteEntity;
 
 import unicaes.tallerautomotriz.tallerautomotriz.paylod.MessageReponse;
 import unicaes.tallerautomotriz.tallerautomotriz.service.ICliente;
-import unicaes.tallerautomotriz.tallerautomotriz.service.Impl.ClienteImpl;
 
 
 @RestController
@@ -22,7 +21,6 @@ public class ClienteController {
     @Autowired
     private ICliente iCliente;
     @Autowired
-    private ClienteImpl clienteImpl;
 
     @Transactional(readOnly = true)
     @GetMapping("/clientes")

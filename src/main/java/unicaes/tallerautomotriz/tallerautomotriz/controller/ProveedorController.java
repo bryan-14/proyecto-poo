@@ -1,7 +1,7 @@
 package unicaes.tallerautomotriz.tallerautomotriz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.ProveedorDto;
@@ -18,16 +18,42 @@ public class    ProveedorController {
 
     @Transactional(readOnly = true)
     @GetMapping("/proveedores")
-    public List<ProveedorDto> buscarproveedorDto() {
-        return iProveedor.buscarproveedorDto();
+    public List<ProveedorEntity> getProveedores() {
+        return iProveedor.findAll();
+    }
 
+    @Transactional(readOnly = true)
+    @GetMapping("/proveedores/{id}")
+    public ProveedorEntity getProveedorById(@PathVariable("id") Long id) {
+        return iProveedor.findById(id).orElse(null);
     }
-    //para escribir
+
     @Transactional
-    @PostMapping("/proveedor")
-    public ProveedorEntity saveProveedor(@RequestBody ProveedorEntity proveedor) {
-        ProveedorEntity SavedProveedor = iProveedor.save(proveedor);
-        String mensaje = "Aqui tienes " + proveedor.getNombre() + " proveedores";
-        return ProveedorEntity.ok(Mensaje);
+    @PostMapping("/proveedores")
+    public ProveedorEntity createProveedor(@RequestBody ProveedorEntity proveedor) {
+        return iProveedor.save(proveedor);
     }
+
+    @Transactional
+    @PutMapping("/proveedores/{id}")
+    public ResponseEntity<ProveedorEntity> updateProveedor(@PathVariable("id") Long id, @RequestBody ProveedorEntity proveedor) {
+    ProveedorEntity updatedProveedor = iProveedor.update(id, proveedor);
+    return ResponseEntity.ok(updatedProveedor);
+}
+
+
+    @Transactional
+    @DeleteMapping("/proveedores/{id}")
+    public void deleteProveedor(@PathVariable("id") Long id) {
+        iProveedor.delete(id);
+    }
+
+    @Transactional(readOnly = true)
+    @GetMapping("/proveedores/nombre/{nombre}")
+    public List<ProveedorDto> findByNombre(@PathVariable("nombre") String nombre) {
+        return iProveedor.findByNombre(nombre);
+    }
+
+
+  
 }

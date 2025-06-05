@@ -1,5 +1,6 @@
 package unicaes.tallerautomotriz.tallerautomotriz.entities.Dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,6 @@ public class ProveedorDto {
 
     private String nombre;
     private Long telefono;
+  
 
 }

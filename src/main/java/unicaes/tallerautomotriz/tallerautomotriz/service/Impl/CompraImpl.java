@@ -1,20 +1,22 @@
 package unicaes.tallerautomotriz.tallerautomotriz.service.Impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import unicaes.tallerautomotriz.tallerautomotriz.entities.CompraEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.entities.Dto.CompraDTO;
+import unicaes.tallerautomotriz.tallerautomotriz.entities.CompraEntity;
 import unicaes.tallerautomotriz.tallerautomotriz.repository.CompraRepository;
 import unicaes.tallerautomotriz.tallerautomotriz.service.ICompra;
 
-import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompraImpl implements ICompra {
 
-    @Autowired
-    private CompraRepository compraRepository;
+    private final CompraRepository compraRepository;
+
+    public CompraImpl(CompraRepository compraRepository) {
+        this.compraRepository = compraRepository;
+    }
 
     @Override
     public List<CompraEntity> findAll() {
@@ -22,25 +24,36 @@ public class CompraImpl implements ICompra {
     }
 
     @Override
-    public List<CompraEntity> findIdCompra(Long idPedido) {
-        return compraRepository.findIdCompra(idPedido);
+    public Optional<CompraEntity> findById(Long id) {
+        return compraRepository.findById(id);
     }
 
     @Override
-    public CompraEntity save(CompraDTO compraDTO) {
-        CompraEntity compraEntity = new CompraEntity();
-        // Crear un nuevo RepuestoEntity y asignar el ID
-        unicaes.tallerautomotriz.tallerautomotriz.entities.RepuestoEntity repuesto = new unicaes.tallerautomotriz.tallerautomotriz.entities.RepuestoEntity();
-        repuesto.setIdRepuesto(compraDTO.getIdRepuesto());
-        compraEntity.setIdRepuesto(repuesto);
-        compraEntity.setDescripcion(compraDTO.getDescripcion());
-        compraEntity.setCantidad(compraDTO.getCantidad());
-        compraEntity.setFechaPedido(String.valueOf(LocalDate.now()));
-        return compraRepository.save(compraEntity);
+    public CompraEntity save(CompraEntity compra) {
+        return compraRepository.save(compra);
     }
 
     @Override
-    public List<CompraDTO> findComprasByCantidad(Integer cantidad) {
+    public CompraEntity update(Long id, CompraEntity compra) {
+        return compraRepository.findById(id)
+            .map(existingCompra -> {
+                existingCompra.setDescripcion(compra.getDescripcion());
+                existingCompra.setCantidad(compra.getCantidad());
+                existingCompra.setIdRepuesto(compra.getIdRepuesto());
+                existingCompra.setIdProveedor(compra.getIdProveedor());
+                existingCompra.setFechaPedido(compra.getFechaPedido());
+                return compraRepository.save(existingCompra);
+            })
+            .orElseThrow(() -> new RuntimeException("Compra not found"));
+    }
+
+    @Override
+    public void delete(Long id) {
+        compraRepository.deleteById(id);
+    }
+
+    @Override
+    public List<CompraDTO> findComprasPorCantidad(Integer cantidad) {
         return compraRepository.findComprasPorCantidad(cantidad);
     }
 }

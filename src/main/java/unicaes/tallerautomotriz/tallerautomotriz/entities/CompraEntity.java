@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Setter
 @Getter
 @AllArgsConstructor
@@ -38,10 +36,4 @@ public class CompraEntity {
     @Column(name = "fecha_pedido")
     private String fechaPedido; 
 
-
-
-
-
 }
-
-
